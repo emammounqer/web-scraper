@@ -4,6 +4,7 @@ import requests
 
 def get_citations_needed_count(url: str) -> int:
     page = requests.get(url)
+    print(page.content)
     soup = BeautifulSoup(page.content, 'html.parser')
     l = soup.find_all('a', title='Wikipedia:Citation needed')
     return len(l)
